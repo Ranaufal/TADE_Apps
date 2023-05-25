@@ -9,12 +9,12 @@ import tadeapps.View.VUserAdmin;
 import tadeapps.Model.MAdmin;
 import tadeapps.Dao.DUserAdmin;
 import Koneksi.Koneksi;
+
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CUserAdmin {
     VUserAdmin view;
-//    ViewUpdateAdmin viewUpdate;
     MAdmin model;
     DUserAdmin dao;
     Koneksi k;
@@ -31,6 +30,9 @@ public class CUserAdmin {
     public CUserAdmin(VUserAdmin view) {
         this.view = view;
     }
+    
+    
+    
 
     
 //    public void update() throws ClassNotFoundException {

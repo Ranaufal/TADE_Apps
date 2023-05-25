@@ -4,7 +4,7 @@
  */
 package tadeapps;
 
-import tadeapps.View.VMenu;
+import tadeapps.View.VLogin;
 
 /**
  *
@@ -22,7 +22,7 @@ public class TadeApps {
     
     public static void main(String[] args) {
         // TODO code application logic here
-        new VMenu().setVisible(true);
+        new VLogin().setVisible(true);
     }
     
 }

@@ -37,10 +37,6 @@ public class VUserAdmin extends javax.swing.JFrame {
         return txtAlamat;
     }
 
-    public JTextField getTxtId() {
-        return txtId;
-    }
-
     public JTextField getTxtNamaPegawai() {
         return txtNamaPegawai;
     }
@@ -82,9 +78,6 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        txtId = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         txtUsername = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -120,6 +113,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(246, 222, 136));
 
         jBtnBack.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
+        jBtnBack.setForeground(new java.awt.Color(8, 43, 89));
         jBtnBack.setText("Back");
         jBtnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +123,7 @@ public class VUserAdmin extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(246, 222, 136));
         jLabel1.setFont(new java.awt.Font("Kannada MN", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(8, 43, 89));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("User Admin");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -137,9 +132,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE)
-                .addGap(111, 111, 111))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -212,38 +205,12 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(246, 222, 136));
         jPanel10.setLayout(null);
 
-        jPanel8.setBackground(new java.awt.Color(246, 222, 136));
-
-        txtId.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
-
-        jLabel2.setText("Id");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jPanel10.add(jPanel8);
-        jPanel8.setBounds(6, 6, 610, 40);
-
         jPanel9.setBackground(new java.awt.Color(246, 222, 136));
 
         txtUsername.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(8, 43, 89));
 
+        jLabel3.setForeground(new java.awt.Color(8, 43, 89));
         jLabel3.setText("Username");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -253,9 +220,9 @@ public class VUserAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(192, 192, 192))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,12 +232,14 @@ public class VUserAdmin extends javax.swing.JFrame {
         );
 
         jPanel10.add(jPanel9);
-        jPanel9.setBounds(6, 52, 610, 40);
+        jPanel9.setBounds(0, 20, 430, 40);
 
         jPanel11.setBackground(new java.awt.Color(246, 222, 136));
 
         txtPassword.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(8, 43, 89));
 
+        jLabel4.setForeground(new java.awt.Color(8, 43, 89));
         jLabel4.setText("Password");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -279,10 +248,10 @@ public class VUserAdmin extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,12 +261,14 @@ public class VUserAdmin extends javax.swing.JFrame {
         );
 
         jPanel10.add(jPanel11);
-        jPanel11.setBounds(6, 98, 610, 40);
+        jPanel11.setBounds(0, 70, 430, 40);
 
         jPanel12.setBackground(new java.awt.Color(246, 222, 136));
 
         txtNamaPegawai.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
+        txtNamaPegawai.setForeground(new java.awt.Color(8, 43, 89));
 
+        jLabel5.setForeground(new java.awt.Color(8, 43, 89));
         jLabel5.setText("Nama Pegawai");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -319,12 +290,14 @@ public class VUserAdmin extends javax.swing.JFrame {
         );
 
         jPanel10.add(jPanel12);
-        jPanel12.setBounds(6, 144, 610, 40);
+        jPanel12.setBounds(0, 120, 610, 40);
 
         jPanel13.setBackground(new java.awt.Color(246, 222, 136));
 
         txtNoHp.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
+        txtNoHp.setForeground(new java.awt.Color(8, 43, 89));
 
+        jLabel6.setForeground(new java.awt.Color(8, 43, 89));
         jLabel6.setText("No. Hp");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -333,10 +306,10 @@ public class VUserAdmin extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addComponent(txtNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(198, 198, 198))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,12 +319,14 @@ public class VUserAdmin extends javax.swing.JFrame {
         );
 
         jPanel10.add(jPanel13);
-        jPanel13.setBounds(6, 190, 610, 40);
+        jPanel13.setBounds(0, 170, 620, 40);
 
         jPanel14.setBackground(new java.awt.Color(246, 222, 136));
 
+        jLabel7.setForeground(new java.awt.Color(8, 43, 89));
         jLabel7.setText("Jenis Kelamin");
 
+        jComboBoxJk.setForeground(new java.awt.Color(8, 43, 89));
         jComboBoxJk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -359,29 +334,29 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBoxJk, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxJk, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel7)
-                .addContainerGap(8, Short.MAX_VALUE))
-            .addComponent(jComboBoxJk)
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jComboBoxJk, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addComponent(jLabel7))
         );
 
         jPanel10.add(jPanel14);
-        jPanel14.setBounds(6, 236, 420, 40);
+        jPanel14.setBounds(0, 220, 420, 40);
 
         jPanel15.setBackground(new java.awt.Color(246, 222, 136));
 
+        jLabel8.setForeground(new java.awt.Color(8, 43, 89));
         jLabel8.setText("Alamat");
 
         txtAlamat.setColumns(20);
+        txtAlamat.setForeground(new java.awt.Color(8, 43, 89));
         txtAlamat.setRows(5);
         jScrollPane3.setViewportView(txtAlamat);
 
@@ -390,11 +365,10 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
+                .addGap(124, 124, 124))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,12 +380,14 @@ public class VUserAdmin extends javax.swing.JFrame {
         );
 
         jPanel10.add(jPanel15);
-        jPanel15.setBounds(10, 330, 420, 90);
+        jPanel15.setBounds(10, 320, 420, 90);
 
         jPanel16.setBackground(new java.awt.Color(246, 222, 136));
 
+        jLabel9.setForeground(new java.awt.Color(8, 43, 89));
         jLabel9.setText("Level Akses");
 
+        jComboBoxJk1.setForeground(new java.awt.Color(8, 43, 89));
         jComboBoxJk1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kasir", "Dapur", "Gudang", " " }));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -419,23 +395,23 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBoxJk1, 0, 302, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxJk1, 0, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel9)
-                .addContainerGap(8, Short.MAX_VALUE))
-            .addComponent(jComboBoxJk1)
+                .addComponent(jComboBoxJk1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel10.add(jPanel16);
-        jPanel16.setBounds(10, 280, 420, 40);
+        jPanel16.setBounds(10, 270, 420, 40);
 
         jPanel4.add(jPanel10);
         jPanel10.setBounds(740, 0, 430, 440);
@@ -451,7 +427,7 @@ public class VUserAdmin extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "No", "Username", "Password", "Nama Pegawai", "No. Hp", "Jenis Kelamin", "Alamat"
+                "No", "Username", "Password", "Nama Pegawai", "No. Hp", "Jenis Kelamin", "Level Akses"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -467,9 +443,8 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel4.add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 730, 550);
 
-        jBtnDelete.setBackground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnDelete.setForeground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setText("Delete");
         jBtnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -479,9 +454,8 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel4.add(jBtnDelete);
         jBtnDelete.setBounds(880, 500, 160, 40);
 
-        jBtnUpdate.setBackground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnUpdate.setForeground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setText("Update");
         jBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,9 +465,8 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel4.add(jBtnUpdate);
         jBtnUpdate.setBounds(970, 440, 160, 40);
 
-        jBtnInsert.setBackground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnInsert.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnInsert.setForeground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setText("Insert");
         jBtnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,7 +557,6 @@ public class VUserAdmin extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxJk1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -604,14 +576,12 @@ public class VUserAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableAdmin;
     private javax.swing.JTextArea txtAlamat;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNamaPegawai;
     private javax.swing.JTextField txtNoHp;
     private javax.swing.JTextField txtPassword;

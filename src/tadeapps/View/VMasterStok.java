@@ -39,7 +39,6 @@ public class VMasterStok extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -48,6 +47,7 @@ public class VMasterStok extends javax.swing.JFrame {
         jBtnUpdate = new javax.swing.JButton();
         jBtnDelete = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -165,6 +165,11 @@ public class VMasterStok extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -188,8 +193,6 @@ public class VMasterStok extends javax.swing.JFrame {
         jLabel2.setBounds(660, 50, 90, 40);
         jPanel5.add(jTextField2);
         jTextField2.setBounds(750, 50, 320, 40);
-        jPanel5.add(jTextField3);
-        jTextField3.setBounds(750, 100, 320, 40);
 
         jLabel3.setText("Jenis Stock");
         jPanel5.add(jLabel3);
@@ -206,9 +209,8 @@ public class VMasterStok extends javax.swing.JFrame {
         jPanel5.add(jScrollPane2);
         jScrollPane2.setBounds(750, 150, 320, 110);
 
-        jBtnInsert.setBackground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnInsert.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnInsert.setForeground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setText("Insert");
         jBtnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,9 +220,8 @@ public class VMasterStok extends javax.swing.JFrame {
         jPanel5.add(jBtnInsert);
         jBtnInsert.setBounds(700, 340, 160, 40);
 
-        jBtnUpdate.setBackground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnUpdate.setForeground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setText("Update");
         jBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,9 +231,8 @@ public class VMasterStok extends javax.swing.JFrame {
         jPanel5.add(jBtnUpdate);
         jBtnUpdate.setBounds(880, 340, 160, 40);
 
-        jBtnDelete.setBackground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnDelete.setForeground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setText("Delete");
         jBtnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +246,10 @@ public class VMasterStok extends javax.swing.JFrame {
         jPanel5.add(jComboBox1);
         jComboBox1.setBounds(2, 10, 650, 40);
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel5.add(jComboBox2);
+        jComboBox2.setBounds(750, 100, 320, 40);
+
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -255,7 +259,7 @@ public class VMasterStok extends javax.swing.JFrame {
     private void jBtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackActionPerformed
         // TODO add your handling code here:
         dispose();
-        new VMenu().setVisible(true);
+        new VMaster().setVisible(true);
     }//GEN-LAST:event_jBtnBackActionPerformed
 
     private void jBtnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInsertActionPerformed
@@ -271,6 +275,11 @@ public class VMasterStok extends javax.swing.JFrame {
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
 
     }//GEN-LAST:event_jBtnDeleteActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -313,6 +322,7 @@ public class VMasterStok extends javax.swing.JFrame {
     private javax.swing.JButton jBtnInsert;
     private javax.swing.JButton jBtnUpdate;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -329,6 +339,5 @@ public class VMasterStok extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

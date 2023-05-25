@@ -28,6 +28,7 @@ public class VMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -40,7 +41,6 @@ public class VMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(246, 222, 136));
@@ -53,17 +53,32 @@ public class VMenu extends javax.swing.JFrame {
         jLabel1.setText("Menu");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        jButton1.setForeground(new java.awt.Color(255, 51, 51));
+        jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(1144, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -119,9 +134,8 @@ public class VMenu extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(246, 222, 136));
         jPanel6.setLayout(null);
 
-        jBtnMaster.setBackground(new java.awt.Color(8, 43, 89));
         jBtnMaster.setFont(new java.awt.Font("Kannada MN", 0, 24)); // NOI18N
-        jBtnMaster.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnMaster.setForeground(new java.awt.Color(8, 43, 89));
         jBtnMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/master-icon.png"))); // NOI18N
         jBtnMaster.setText("Master Data");
         jBtnMaster.setPreferredSize(new java.awt.Dimension(129, 60));
@@ -133,9 +147,8 @@ public class VMenu extends javax.swing.JFrame {
         jPanel6.add(jBtnMaster);
         jBtnMaster.setBounds(170, 70, 270, 130);
 
-        jBtnPengeluaran.setBackground(new java.awt.Color(8, 43, 89));
         jBtnPengeluaran.setFont(new java.awt.Font("Kannada MN", 0, 24)); // NOI18N
-        jBtnPengeluaran.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnPengeluaran.setForeground(new java.awt.Color(8, 43, 89));
         jBtnPengeluaran.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/master-icon.png"))); // NOI18N
         jBtnPengeluaran.setText("Pengeluaran");
         jBtnPengeluaran.setPreferredSize(new java.awt.Dimension(129, 60));
@@ -147,9 +160,8 @@ public class VMenu extends javax.swing.JFrame {
         jPanel6.add(jBtnPengeluaran);
         jBtnPengeluaran.setBounds(180, 290, 270, 130);
 
-        jBtnPayroll.setBackground(new java.awt.Color(8, 43, 89));
         jBtnPayroll.setFont(new java.awt.Font("Kannada MN", 0, 24)); // NOI18N
-        jBtnPayroll.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnPayroll.setForeground(new java.awt.Color(8, 43, 89));
         jBtnPayroll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/master-icon.png"))); // NOI18N
         jBtnPayroll.setText("Payroll");
         jBtnPayroll.setPreferredSize(new java.awt.Dimension(129, 60));
@@ -161,9 +173,8 @@ public class VMenu extends javax.swing.JFrame {
         jPanel6.add(jBtnPayroll);
         jBtnPayroll.setBounds(510, 290, 270, 130);
 
-        jBtnTransaksi.setBackground(new java.awt.Color(8, 43, 89));
         jBtnTransaksi.setFont(new java.awt.Font("Kannada MN", 0, 24)); // NOI18N
-        jBtnTransaksi.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnTransaksi.setForeground(new java.awt.Color(8, 43, 89));
         jBtnTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/master-icon.png"))); // NOI18N
         jBtnTransaksi.setText("Transaksi");
         jBtnTransaksi.setPreferredSize(new java.awt.Dimension(129, 60));
@@ -207,6 +218,12 @@ public class VMenu extends javax.swing.JFrame {
         new VTransaksi().setVisible(true);
     }//GEN-LAST:event_jBtnTransaksiActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,6 +265,7 @@ public class VMenu extends javax.swing.JFrame {
     private javax.swing.JButton jBtnPayroll;
     private javax.swing.JButton jBtnPengeluaran;
     private javax.swing.JButton jBtnTransaksi;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

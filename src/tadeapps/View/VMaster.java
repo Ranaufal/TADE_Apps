@@ -151,14 +151,17 @@ public class VMaster extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(246, 222, 136));
 
-        jButton2.setBackground(new java.awt.Color(8, 43, 89));
         jButton2.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(8, 43, 89));
         jButton2.setText("Menu Makanan");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jBtnUserAdmin.setBackground(new java.awt.Color(8, 43, 89));
         jBtnUserAdmin.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
-        jBtnUserAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnUserAdmin.setForeground(new java.awt.Color(8, 43, 89));
         jBtnUserAdmin.setText("User Admin");
         jBtnUserAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,9 +169,8 @@ public class VMaster extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(8, 43, 89));
         jButton4.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(8, 43, 89));
         jButton4.setText("Stok");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +236,12 @@ public class VMaster extends javax.swing.JFrame {
         dispose();
         new VMasterStok().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new VMenuMakanan().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

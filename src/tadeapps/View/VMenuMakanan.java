@@ -4,6 +4,13 @@
  */
 package tadeapps.View;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import tadeapps.Controller.CMenuMakanan;
+
 /**
  *
  * @author ranaufal
@@ -13,9 +20,40 @@ public class VMenuMakanan extends javax.swing.JFrame {
     /**
      * Creates new form VMenuMakanan
      */
+    CMenuMakanan controller;
+    
     public VMenuMakanan() {
-        initComponents();
+        try {
+            initComponents();
+            controller = new CMenuMakanan(this);
+            controller.viewTabel();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VMenuMakanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+    public JTable getTabelMenuMakanan() {
+        return tabelMenuMakanan;
+    }
+
+    public JTextField getTxtHarga() {
+        return txtHarga;
+    }
+
+    public JTextArea getTxtKeterangan() {
+        return txtKeterangan;
+    }
+
+    public JTextField getTxtNamaMenu() {
+        return txtNamaMenu;
+    }
+
+    public JTextField getTxtQuantity() {
+        return txtQuantity;
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,16 +72,16 @@ public class VMenuMakanan extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelMenuMakanan = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNamaMenu = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtHarga = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtQuantity = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtKeterangan = new javax.swing.JTextArea();
         jBtnInsert = new javax.swing.JButton();
         jBtnUpdate = new javax.swing.JButton();
         jBtnDelete = new javax.swing.JButton();
@@ -142,30 +180,36 @@ public class VMenuMakanan extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(246, 222, 136));
         jPanel5.setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelMenuMakanan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "No", "Nama Menu", "Harga Menu", "Quantity Menu"
+                "No", "Nama Menu", "Harga Menu", "Quantity", "ket"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        tabelMenuMakanan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelMenuMakananMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelMenuMakanan);
+        if (tabelMenuMakanan.getColumnModel().getColumnCount() > 0) {
+            tabelMenuMakanan.getColumnModel().getColumn(0).setResizable(false);
+            tabelMenuMakanan.getColumnModel().getColumn(1).setResizable(false);
+            tabelMenuMakanan.getColumnModel().getColumn(2).setResizable(false);
+            tabelMenuMakanan.getColumnModel().getColumn(4).setResizable(false);
         }
 
         jPanel5.add(jScrollPane1);
@@ -174,35 +218,34 @@ public class VMenuMakanan extends javax.swing.JFrame {
         jLabel1.setText("Nama Menu");
         jPanel5.add(jLabel1);
         jLabel1.setBounds(670, 0, 90, 40);
-        jPanel5.add(jTextField1);
-        jTextField1.setBounds(760, 0, 320, 40);
+        jPanel5.add(txtNamaMenu);
+        txtNamaMenu.setBounds(760, 0, 320, 40);
 
         jLabel2.setText("Harga Menu");
         jPanel5.add(jLabel2);
         jLabel2.setBounds(670, 50, 90, 40);
-        jPanel5.add(jTextField2);
-        jTextField2.setBounds(760, 50, 320, 40);
+        jPanel5.add(txtHarga);
+        txtHarga.setBounds(760, 50, 320, 40);
 
         jLabel4.setText("Quantity Menu");
         jPanel5.add(jLabel4);
         jLabel4.setBounds(670, 100, 90, 40);
-        jPanel5.add(jTextField3);
-        jTextField3.setBounds(760, 100, 320, 40);
+        jPanel5.add(txtQuantity);
+        txtQuantity.setBounds(760, 100, 320, 40);
 
         jLabel3.setText("Keterangan");
         jPanel5.add(jLabel3);
         jLabel3.setBounds(670, 150, 90, 40);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtKeterangan.setColumns(20);
+        txtKeterangan.setRows(5);
+        jScrollPane2.setViewportView(txtKeterangan);
 
         jPanel5.add(jScrollPane2);
         jScrollPane2.setBounds(760, 150, 320, 110);
 
-        jBtnInsert.setBackground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnInsert.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnInsert.setForeground(new java.awt.Color(8, 43, 89));
         jBtnInsert.setText("Insert");
         jBtnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,9 +255,8 @@ public class VMenuMakanan extends javax.swing.JFrame {
         jPanel5.add(jBtnInsert);
         jBtnInsert.setBounds(710, 300, 160, 40);
 
-        jBtnUpdate.setBackground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnUpdate.setForeground(new java.awt.Color(8, 43, 89));
         jBtnUpdate.setText("Update");
         jBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,9 +266,8 @@ public class VMenuMakanan extends javax.swing.JFrame {
         jPanel5.add(jBtnUpdate);
         jBtnUpdate.setBounds(890, 300, 160, 40);
 
-        jBtnDelete.setBackground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
-        jBtnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnDelete.setForeground(new java.awt.Color(8, 43, 89));
         jBtnDelete.setText("Delete");
         jBtnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,17 +280,21 @@ public class VMenuMakanan extends javax.swing.JFrame {
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        new VMenu().setVisible(true);
+        new VMaster().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jBtnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInsertActionPerformed
-
-        //            controller.insert();
+        try {
+            controller.insert();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VMenuMakanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBtnInsertActionPerformed
 
     private void jBtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUpdateActionPerformed
@@ -260,9 +305,10 @@ public class VMenuMakanan extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBtnDeleteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void tabelMenuMakananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMenuMakananMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelMenuMakananMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -312,10 +358,10 @@ public class VMenuMakanan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tabelMenuMakanan;
+    private javax.swing.JTextField txtHarga;
+    private javax.swing.JTextArea txtKeterangan;
+    private javax.swing.JTextField txtNamaMenu;
+    private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
 }
