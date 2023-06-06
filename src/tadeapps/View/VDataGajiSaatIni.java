@@ -8,12 +8,12 @@ package tadeapps.View;
  *
  * @author ranaufal
  */
-public class VPayroll extends javax.swing.JFrame {
+public class VDataGajiSaatIni extends javax.swing.JFrame {
 
     /**
      * Creates new form VPayroll
      */
-    public VPayroll() {
+    public VDataGajiSaatIni() {
         initComponents();
     }
 
@@ -33,6 +33,7 @@ public class VPayroll extends javax.swing.JFrame {
         jBtnBack = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        txtUsernamePegawai = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -44,8 +45,9 @@ public class VPayroll extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jBtnInsert = new javax.swing.JButton();
+        jBtnUpdate = new javax.swing.JButton();
+        jBtnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +74,7 @@ public class VPayroll extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Kannada MN", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(8, 43, 89));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Payroll");
+        jLabel6.setText("DATA GAJI SAAT INI");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jBtnBack.setFont(new java.awt.Font("Kannada MN", 0, 13)); // NOI18N
@@ -130,15 +132,29 @@ public class VPayroll extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(246, 222, 136));
 
+        txtUsernamePegawai.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
+        txtUsernamePegawai.setForeground(new java.awt.Color(204, 0, 51));
+        txtUsernamePegawai.setText("usernamepegawai");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.PAGE_END);
@@ -154,10 +170,24 @@ public class VPayroll extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No", "Nama", "nama job", "Jumlah Gaji"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel6.add(jScrollPane1);
         jScrollPane1.setBounds(2, 0, 760, 520);
@@ -176,7 +206,7 @@ public class VPayroll extends javax.swing.JFrame {
         jPanel6.add(jTextField3);
         jTextField3.setBounds(890, 80, 290, 30);
 
-        jLabel3.setText("Gaji");
+        jLabel3.setText("Jumlah Gaji");
         jPanel6.add(jLabel3);
         jLabel3.setBounds(780, 80, 100, 30);
         jPanel6.add(jTextField4);
@@ -185,12 +215,39 @@ public class VPayroll extends javax.swing.JFrame {
         jLabel4.setText("Id Kariawan");
         jPanel6.add(jLabel4);
         jLabel4.setBounds(780, 120, 100, 30);
-        jPanel6.add(jTextField5);
-        jTextField5.setBounds(890, 160, 290, 30);
 
-        jLabel5.setText("Id Kariawan");
-        jPanel6.add(jLabel5);
-        jLabel5.setBounds(780, 157, 100, 30);
+        jBtnInsert.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
+        jBtnInsert.setForeground(new java.awt.Color(8, 43, 89));
+        jBtnInsert.setText("Insert");
+        jBtnInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInsertActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jBtnInsert);
+        jBtnInsert.setBounds(810, 350, 160, 40);
+
+        jBtnUpdate.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
+        jBtnUpdate.setForeground(new java.awt.Color(8, 43, 89));
+        jBtnUpdate.setText("Update");
+        jBtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jBtnUpdate);
+        jBtnUpdate.setBounds(990, 350, 160, 40);
+
+        jBtnDelete.setFont(new java.awt.Font("Kannada MN", 1, 13)); // NOI18N
+        jBtnDelete.setForeground(new java.awt.Color(8, 43, 89));
+        jBtnDelete.setText("Delete");
+        jBtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnDeleteActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jBtnDelete);
+        jBtnDelete.setBounds(900, 410, 160, 40);
 
         jPanel1.add(jPanel6, java.awt.BorderLayout.CENTER);
 
@@ -215,6 +272,22 @@ public class VPayroll extends javax.swing.JFrame {
         new VMenu().setVisible(true);
     }//GEN-LAST:event_jBtnBackActionPerformed
 
+    private void jBtnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInsertActionPerformed
+//        try {
+//            controller.insert();
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(VMenuMakanan.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_jBtnInsertActionPerformed
+
+    private void jBtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnUpdateActionPerformed
+
+    private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
+
+    }//GEN-LAST:event_jBtnDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,31 +305,34 @@ public class VPayroll extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VDataGajiSaatIni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VDataGajiSaatIni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VDataGajiSaatIni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VPayroll.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VDataGajiSaatIni.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VPayroll().setVisible(true);
+                new VDataGajiSaatIni().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnBack;
+    private javax.swing.JButton jBtnDelete;
+    private javax.swing.JButton jBtnInsert;
+    private javax.swing.JButton jBtnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -270,6 +346,6 @@ public class VPayroll extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel txtUsernamePegawai;
     // End of variables declaration//GEN-END:variables
 }

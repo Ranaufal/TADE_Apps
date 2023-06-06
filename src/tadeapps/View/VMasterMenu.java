@@ -11,12 +11,12 @@ import java.util.logging.Logger;
  *
  * @author ranaufal
  */
-public class VMaster extends javax.swing.JFrame {
+public class VMasterMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form VMaster
      */
-    public VMaster() {
+    public VMasterMenu() {
         initComponents();
     }
 
@@ -37,6 +37,7 @@ public class VMaster extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        txtUsernamePegawai = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jBtnUserAdmin = new javax.swing.JButton();
@@ -136,15 +137,29 @@ public class VMaster extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(246, 222, 136));
 
+        txtUsernamePegawai.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
+        txtUsernamePegawai.setForeground(new java.awt.Color(204, 0, 51));
+        txtUsernamePegawai.setText("usernamepegawai");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel6, java.awt.BorderLayout.PAGE_END);
@@ -218,11 +233,7 @@ public class VMaster extends javax.swing.JFrame {
     private void jBtnUserAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUserAdminActionPerformed
         // TODO add your handling code here:
         dispose();
-        try {
-            new VUserAdmin().setVisible(true);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VMaster.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new VUserAdmin().setVisible(true);
     }//GEN-LAST:event_jBtnUserAdminActionPerformed
 
     private void jBtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackActionPerformed
@@ -260,20 +271,21 @@ public class VMaster extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VMaster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMasterMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VMaster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMasterMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VMaster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMasterMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VMaster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VMasterMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VMaster().setVisible(true);
+                new VMasterMenu().setVisible(true);
             }
         });
     }
@@ -291,5 +303,6 @@ public class VMaster extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel txtUsernamePegawai;
     // End of variables declaration//GEN-END:variables
 }

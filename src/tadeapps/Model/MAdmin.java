@@ -12,7 +12,9 @@ public class MAdmin {
     private int id_admin;
     private String username, password, nama_pegawai, no_hp, jk, alamat, level_akses;
 
-    public MAdmin() {}
+    public MAdmin() {
+        // Empty Constructor
+    }
 
     public MAdmin(int id_admin, String username, String password, String nama_pegawai, String no_hp, String jk, String alamat, String level_akses) {
         this.id_admin = id_admin;
@@ -24,14 +26,15 @@ public class MAdmin {
         this.alamat = alamat;
         this.level_akses = level_akses;
     }
-
-    public MAdmin(String username, String password, String nama_pegawai, String no_hp, String jk, String alamat) {
+    
+    public MAdmin(String username, String password, String nama_pegawai, String no_hp, String jk, String alamat, String level_akses) {
         this.username = username;
         this.password = password;
         this.nama_pegawai = nama_pegawai;
         this.no_hp = no_hp;
         this.jk = jk;
         this.alamat = alamat;
+        this.level_akses = level_akses;
     }
 
     public int getId_admin() {

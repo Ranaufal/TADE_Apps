@@ -24,23 +24,43 @@ public class DMenuMakanan {
         ResultSet rs = ps.executeQuery();
         List<MMenuMakanan> list = new ArrayList<>();
         while (rs.next()) {
-            MMenuMakanan model = new MMenuMakanan(
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4));
+            MMenuMakanan model = new MMenuMakanan(rs.getInt("id_menu"),
+                    rs.getInt("harga"),
+                    rs.getInt("quantity_menu"),
+                    rs.getString("nama_menu"),
+                    rs.getString("keterangan"));
             list.add(model);
         }
         return list;
     }
     
-    public void insert(Connection con, MMenuMakanan mm) throws SQLException{
-        String sql = "insert into menu_makanan values (?,?,?,?,?)";
+    public void queryInsert(Connection con, MMenuMakanan model) throws SQLException {
+        String sql = "INSERT INTO menu_makanan(nama_menu, harga, quantity_menu, keterangan) VALUES(?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, mm.getId());
-        ps.setString(2, mm.getNama_menu());
-        ps.setString(3, mm.getHarga());
-        ps.setString(4, mm.getKeterangan());
+        ps.setString(1, model.getNama_menu());
+        ps.setInt(2, model.getHarga());
+        ps.setInt(3, model.getQuantity_menu());
+        ps.setString(4, model.getKeterangan());
         ps.executeUpdate();
     }
+    
+    public void queryUpdate(Connection con, MMenuMakanan model) throws SQLException{
+        String sql = "UPDATE menu_makanan SET nama_menu=?, harga=?, quantity_menu=?, keterangan=? WHERE id_menu=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, model.getNama_menu());
+        ps.setInt(2, model.getHarga());
+        ps.setInt(3, model.getQuantity_menu());
+        ps.setString(4, model.getKeterangan());
+        ps.setInt(5, model.getId_menu());
+        ps.executeUpdate();
+    }
+    
+    public void queryDelete(Connection con, int id) throws SQLException {
+        String sql = "DELETE FROM menu_makanan WHERE id_menu=?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
+    
+    
 }

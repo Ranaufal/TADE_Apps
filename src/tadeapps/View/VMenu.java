@@ -30,6 +30,7 @@ public class VMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        txtUsernamePegawai = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -85,15 +86,29 @@ public class VMenu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(246, 222, 136));
 
+        txtUsernamePegawai.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
+        txtUsernamePegawai.setForeground(new java.awt.Color(204, 0, 51));
+        txtUsernamePegawai.setText("usernamepegawai");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 87, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
@@ -197,19 +212,19 @@ public class VMenu extends javax.swing.JFrame {
     private void jBtnPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPayrollActionPerformed
         // TODO add your handling code here:
         dispose();
-        new VPayroll().setVisible(true);
+        new VDataGajiSaatIni().setVisible(true);
     }//GEN-LAST:event_jBtnPayrollActionPerformed
 
     private void jBtnMasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMasterActionPerformed
         // TODO add your handling code here:
         dispose();
-        new VMaster().setVisible(true);
+        new VMasterMenu().setVisible(true);
     }//GEN-LAST:event_jBtnMasterActionPerformed
 
     private void jBtnPengeluaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPengeluaranActionPerformed
         // TODO add your handling code here:
         dispose();
-        new VPengeluaran().setVisible(true);
+        new VMenuPengeluaran().setVisible(true);
     }//GEN-LAST:event_jBtnPengeluaranActionPerformed
 
     private void jBtnTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTransaksiActionPerformed
@@ -221,7 +236,7 @@ public class VMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
-        
+        new VLogin().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -273,5 +288,6 @@ public class VMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel txtUsernamePegawai;
     // End of variables declaration//GEN-END:variables
 }

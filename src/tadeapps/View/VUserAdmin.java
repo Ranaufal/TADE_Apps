@@ -4,14 +4,14 @@
  */
 package tadeapps.View;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.swing.JComboBox;
-import javax.swing.JTable;
-import tadeapps.Controller.CUserAdmin;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import tadeapps.Controller.CUserAdmin;
 
 /**
  *
@@ -19,11 +19,12 @@ import javax.swing.JTextField;
  */
 public class VUserAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VUserAdmin
-     */
     CUserAdmin controller;
-    public VUserAdmin() throws ClassNotFoundException{
+    private int id;
+    private List<Integer> ids;
+    private List<String> alamats;
+
+    public VUserAdmin() {
         initComponents();
         controller = new CUserAdmin(this);
         controller.viewTabel();
@@ -36,6 +37,7 @@ public class VUserAdmin extends javax.swing.JFrame {
     public JTextArea getTxtAlamat() {
         return txtAlamat;
     }
+
 
     public JTextField getTxtNamaPegawai() {
         return txtNamaPegawai;
@@ -56,7 +58,34 @@ public class VUserAdmin extends javax.swing.JFrame {
     public JComboBox<String> getjComboBoxJk() {
         return jComboBoxJk;
     }
+
+    public JComboBox<String> getjComboBoxLvlAkses() {
+        return jComboBoxLvlAkses;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
+    public List<Integer> getIds() {
+        return ids;
+    }
+
+    public void setIds(List<Integer> ids) {
+        this.ids = ids;
+    }
+
+    public List<String> getAlamats() {
+        return alamats;
+    }
+
+    public void setAlamats(List<String> alamats) {
+        this.alamats = alamats;
+    }
     
 
     /**
@@ -75,6 +104,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        txtUsernamePegawai = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -99,7 +129,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         txtAlamat = new javax.swing.JTextArea();
         jPanel16 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBoxJk1 = new javax.swing.JComboBox<>();
+        jComboBoxLvlAkses = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAdmin = new javax.swing.JTable();
         jBtnDelete = new javax.swing.JButton();
@@ -171,15 +201,29 @@ public class VUserAdmin extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(246, 222, 136));
         jPanel3.setPreferredSize(new java.awt.Dimension(800, 70));
 
+        txtUsernamePegawai.setFont(new java.awt.Font("Kannada MN", 0, 18)); // NOI18N
+        txtUsernamePegawai.setForeground(new java.awt.Color(204, 0, 51));
+        txtUsernamePegawai.setText("usernamepegawai");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtUsernamePegawai)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.PAGE_END);
@@ -327,7 +371,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         jLabel7.setText("Jenis Kelamin");
 
         jComboBoxJk.setForeground(new java.awt.Color(8, 43, 89));
-        jComboBoxJk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki - Laki", "Perempuan" }));
+        jComboBoxJk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "perempuan" }));
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -387,8 +431,8 @@ public class VUserAdmin extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(8, 43, 89));
         jLabel9.setText("Level Akses");
 
-        jComboBoxJk1.setForeground(new java.awt.Color(8, 43, 89));
-        jComboBoxJk1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kasir", "Dapur", "Gudang", " " }));
+        jComboBoxLvlAkses.setForeground(new java.awt.Color(8, 43, 89));
+        jComboBoxLvlAkses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kasir", "Dapur", "Gudang", " " }));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -397,13 +441,13 @@ public class VUserAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxJk1, 0, 308, Short.MAX_VALUE)
+                .addComponent(jComboBoxLvlAkses, 0, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(jComboBoxJk1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxLvlAkses, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -436,6 +480,11 @@ public class VUserAdmin extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTableAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAdminMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTableAdmin);
@@ -485,29 +534,29 @@ public class VUserAdmin extends javax.swing.JFrame {
     private void jBtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackActionPerformed
         // TODO add your handling code here:
         dispose();
-        new VMaster().setVisible(true);
+        new VMasterMenu().setVisible(true);
     }//GEN-LAST:event_jBtnBackActionPerformed
 
     private void jBtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUpdateActionPerformed
-        // TODO add your handling code here:
+        controller.update();
+        controller.viewTabel();
     }//GEN-LAST:event_jBtnUpdateActionPerformed
 
     private void jBtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDeleteActionPerformed
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            controller.hapus();
-            controller.viewTabel();
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        controller.delete();
+        controller.viewTabel();
     }//GEN-LAST:event_jBtnDeleteActionPerformed
 
     private void jBtnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInsertActionPerformed
-  
-//            controller.insert();
-        
+        controller.insert();
+        controller.viewTabel();
     }//GEN-LAST:event_jBtnInsertActionPerformed
+
+    private void jTableAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAdminMouseClicked
+        // TODO add your handling code here:
+        controller.search();
+    }//GEN-LAST:event_jTableAdminMouseClicked
 
     /**
      * @param args the command line arguments
@@ -539,11 +588,7 @@ public class VUserAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new VUserAdmin().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(VUserAdmin.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new VUserAdmin().setVisible(true);
             }
         });
     }
@@ -554,7 +599,7 @@ public class VUserAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jBtnInsert;
     private javax.swing.JButton jBtnUpdate;
     private javax.swing.JComboBox<String> jComboBoxJk;
-    private javax.swing.JComboBox<String> jComboBoxJk1;
+    private javax.swing.JComboBox<String> jComboBoxLvlAkses;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -586,5 +631,6 @@ public class VUserAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNoHp;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JLabel txtUsernamePegawai;
     // End of variables declaration//GEN-END:variables
 }

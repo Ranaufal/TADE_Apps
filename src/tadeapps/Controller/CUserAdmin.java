@@ -5,73 +5,96 @@
 package tadeapps.Controller;
 
 import tadeapps.View.VUserAdmin;
-//import View.ViewUpdateAdmin;
-import tadeapps.Model.MAdmin;
-import tadeapps.Dao.DUserAdmin;
-import Koneksi.Koneksi;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
+import tadeapps.Model.MAdmin;
+import tadeapps.Dao.DUserAdmin;
+import Koneksi.Koneksi;
 /**
  *
  * @author MSI-PC
  */
 public class CUserAdmin {
+    Koneksi k;
     VUserAdmin view;
     MAdmin model;
     DUserAdmin dao;
-    Koneksi k;
     private int n = 1;
-    
+
     public CUserAdmin(VUserAdmin view) {
         this.view = view;
     }
-    
-    
-    
 
-    
-//    public void update() throws ClassNotFoundException {
-//        model = new MAdmin(viewUpdate.getTxtUsername().getText(),
-//                viewUpdate.getTxtPassword().getText(),
-//                viewUpdate.getTxtNamaPegawai().getText(),
-//                viewUpdate.getTxtNoHp().getText(),
-//                viewUpdate.getJk(),
-//                viewUpdate.getTxtAlamat().getText());
-//        dao = new DUserAdmin();
-//        k = new Koneksi();
-//        try {
-//            dao.queryUpdate(k.getKoneksi(), model);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CUserAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-//    
-    public void hapus() throws ClassNotFoundException {
-        DefaultTableModel tabel = (DefaultTableModel)view.getjTableAdmin().getModel();
-        model = new MAdmin();
-        int index = view.getjTableAdmin().getSelectedRow();
-        model.setUsername(tabel.getValueAt(index, 1).toString());
+    public void insert() {
+        model = new MAdmin(view.getTxtUsername().getText(),
+                view.getTxtPassword().getText(),
+                view.getTxtNamaPegawai().getText(),
+                view.getTxtNoHp().getText(),
+                view.getjComboBoxJk().getSelectedItem().toString(),
+                view.getTxtAlamat().getText(),
+                view.getjComboBoxLvlAkses().getSelectedItem().toString());
         dao = new DUserAdmin();
         k = new Koneksi();
         try {
-            int id = dao.queryId(k.getKoneksi(), model.getUsername());
-            dao.queryDelete(k.getKoneksi(), id);
+            dao.queryInsert(k.getKoneksi(), model);
+            JOptionPane.showMessageDialog(view, "Insert Berhasil");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
         }
     }
-//    
-    public void viewTabel() throws ClassNotFoundException {
-        DefaultTableModel tabel = (DefaultTableModel)view.getjTableAdmin().getModel();
-        tabel.setRowCount(0);
+
+    public void update() {
         dao = new DUserAdmin();
         k = new Koneksi();
+        model = new MAdmin(view.getId(),
+                view.getTxtUsername().getText(),
+                view.getTxtUsername().getText(),
+                view.getTxtUsername().getText(),
+                view.getTxtUsername().getText(),
+                view.getjComboBoxJk().getSelectedItem().toString(),
+                view.getTxtAlamat().getText(),
+                view.getjComboBoxLvlAkses().getSelectedItem().toString());
+        try {
+            dao.queryUpdate(k.getKoneksi(), model);
+            JOptionPane.showMessageDialog(view, "Update Berhasil");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        }
+    }
+    
+    public void delete() {
+        int index = view.getjTableAdmin().getSelectedRow();
+        dao = new DUserAdmin();
+        k = new Koneksi();
+        try {
+            dao.queryDelete(k.getKoneksi(),view.getIds().get(index));
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        }
+    }
+
+    public void viewTabel() {
+        DefaultTableModel tabel = (DefaultTableModel) view.getjTableAdmin().getModel();
+        tabel.setRowCount(0);
+        k = new Koneksi();
+        dao = new DUserAdmin();
         List<MAdmin> list;
+        List<Integer> ids = new ArrayList<>();
+        List<String> alamats = new ArrayList<>();
+        int i = 0;
         try {
             list = dao.queryAllData(k.getKoneksi());
             for (MAdmin model : list) {
@@ -82,56 +105,31 @@ public class CUserAdmin {
                     model.getNama_pegawai(),
                     model.getNo_hp(),
                     model.getJk(),
-                    model.getAlamat(),
                     model.getLevel_akses()
                 };
                 tabel.addRow(data);
+                ids.add(model.getId_admin());
+                alamats.add(model.getAlamat());
             }
+            view.setIds(ids);
+            view.setAlamats(alamats);
             n = 1;
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
         }
     }
-//    
-//    public void setUpdate() throws ClassNotFoundException {
-//        DefaultTableModel tabel = (DefaultTableModel)view.getTabelAdmin().getModel();
-//        model = new ModelAdmin();
-//        dao = new DAOAdmin();
-//        k = new Koneksi();
-//        int index = view.getTabelAdmin().getSelectedRow();
-//        model.setUsername(tabel.getValueAt(index, 1).toString());
-//        try {
-//            dao.queryId(k.getKoneksi(), model.getUsername());
-//            model = dao.querySingleData(k.getKoneksi(), model.getId_admin());
-//            viewUpdate.getTxtUsername().setText(model.getUsername());
-//            viewUpdate.getTxtPassword().setText(model.getPassword());
-//            viewUpdate.getTxtNamaPegawai().setText(model.getNama_pegawai());
-//            viewUpdate.getTxtNoHp().setText(model.getNo_hp());
-////            viewUpdate.getJk().setText(model.getUsername());
-//            viewUpdate.getTxtUsername().setText(model.getUsername());
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CUserAdmin.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 
-//    public void insert() {
-//        model = new MAdmin();
-//        model.setUsername(view.getTxtUsername().getText());
-//        model.setPassword(view.getTxtPassword().getText());
-//        model.setNama_pegawai(view.getTxtNamaPegawai().getText());
-//        model.setNo_hp(view.getTxtNoHp().getText());
-//        model.setJk(view.getjComboBoxJk().toString());
-//        model.setAlamat(view.getTxtAlamat().getText());
-//        dao = new DUserAdmin();
-//        k = new Koneksi();
-//        try {
-//            dao.queryRegister(k.getKoneksi(), model.getUsername(), model.getPassword(), model.getNama_pegawai(), model.getNo_hp(), model.getJk(), model.getAlamat());
-//            JOptionPane.showMessageDialog(null, "Register Berhasil");
-//            viewRegister.dispose();
-//            new ViewLogin().setVisible(true);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage());
-//        }
-//    }
+    public void search() {
+        view.setId(view.getIds().get(view.getjTableAdmin().getSelectedRow()));
+        view.getTxtUsername().setText(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 1).toString());
+        view.getTxtPassword().setText(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 2).toString());
+        view.getTxtNamaPegawai().setText(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 3).toString());
+        view.getTxtNoHp().setText(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 4).toString());
+        view.getjComboBoxJk().setSelectedItem(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 5).toString());
+        view.getjComboBoxLvlAkses().setSelectedItem(view.getjTableAdmin().getValueAt(view.getjTableAdmin().getSelectedRow(), 6).toString());
+        view.getTxtAlamat().setText(view.getAlamats().get(view.getjTableAdmin().getSelectedRow()));
+    }
             
 }
